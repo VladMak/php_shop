@@ -7,11 +7,19 @@
 Формирование запрашиваемой страницы
 */
 
-function loadPage($controllerName, $actionName = 'index'){
+function loadPage($smarty, $controllerName, $actionName = 'index'){
 	//Подключаем контроллер
-	include_once PathPrefix .$controllerName . PathPostfix;
+	include_once PathPrefix . $controllerName . PathPostfix;
 
 	//Формируем название функции и вызываем ее
 	$function = $actionName . 'Action';
-	$function();
+	$function($smarty);
+}
+
+/*
+Загрузка шаблона
+*/
+
+function loadTemplate($smarty, $templateName){
+    $smarty->display($templateName . TemplatePostfix);
 }

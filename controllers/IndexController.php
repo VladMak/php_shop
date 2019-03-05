@@ -4,6 +4,11 @@
 Контроллер главной страницы
 */
 
-function indexAction(){
-	echo 'Hello, it is indexAction';
+/*
+Формирование главной страницы сайта
+*/
+function indexAction($smarty){
+    $smarty->assign('pageTitle', 'Главная страница');
+
+    loadTemplate($smarty, 'index');
 }
