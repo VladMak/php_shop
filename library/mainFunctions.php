@@ -1,4 +1,11 @@
 <?php
+/*
+Основные функции
+*/
+
+/**
+Формирование запрашиваемой страницы
+*/
 
 function loadPage($controllerName, $actionName = 'index'){
 	//Подключаем контроллер
