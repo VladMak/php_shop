@@ -23,3 +23,14 @@ function loadPage($smarty, $controllerName, $actionName = 'index'){
 function loadTemplate($smarty, $templateName){
     $smarty->display($templateName . TemplatePostfix);
 }
+
+/**
+* Функция отладки. Останавливает работу программы, выводя значение переменной
+*/
+function d($value = null, $die = 1){
+    echo 'Debug: <br/><pre>';
+    print_r($value);
+    echo '</pre>';
+
+    if($die) die;
+}

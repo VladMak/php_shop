@@ -3,7 +3,7 @@
 Файл настроек
 */ 
 //Корень сайта
-define('ROOT', $_SERVER['DOCUMENT_ROOT']);
+define('ROOT', '..');
 //Показывать ошибки
 ini_set("display_errors", 1);
 error_reporting(E_ALL);
