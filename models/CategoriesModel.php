@@ -12,7 +12,7 @@
  * @return array массив дочерних категорий
  */
 function getChildrenForCat($db, $catId) {
-    $sql = "SELECT * FROM categories WHERE parent_id = '$catId'";
+    $sql = "SELECT * FROM `categories` WHERE `parent_id` = '$catId'";
 
     $rs = mysqli_query($db, $sql);
 
@@ -25,7 +25,7 @@ function getChildrenForCat($db, $catId) {
  * @return array массив категорий
  */
 function getAllMainCatsWithChildren($db) {
-    $sql = 'SELECT * FROM categories WHERE parent_id=0';
+    $sql = 'SELECT * FROM `categories` WHERE `parent_id`=0';
     $rs = mysqli_query($db, $sql);
 
     $smartyRs = array();

@@ -6,6 +6,7 @@
 
 //подключение модели
 include_once '../models/CategoriesModel.php';
+include_once '../models/ProductsModel.php';
 
 /**
  * Формирование главной страницы сайта
@@ -15,6 +16,7 @@ include_once '../models/CategoriesModel.php';
 function indexAction($smarty, $db)
 {
     $rsCategories = getAllMainCatsWithChildren($db);
+    $rsProducts = getLastProducts($db, 16);
     
     $smarty->assign('pageTitle', 'Главная страница');
     $smarty->assign('rsCategories', $rsCategories);
