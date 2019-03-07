@@ -1,8 +1,8 @@
 <?php
 
 include_once '../config/config.php'; //инициализация настроек
+include_once '../config/db.php'; // инициализация базы данных
 include_once '../library/mainFunctions.php'; //основные функции
-
 //Определяем с каким контроллером будем работать
 $controllerName = isset($_GET['controller']) ? ucfirst($_GET['controller']) : 'Index';
 
@@ -10,4 +10,4 @@ $controllerName = isset($_GET['controller']) ? ucfirst($_GET['controller']) : 'I
 $actionName = isset($_GET['action']) ? $_GET['action'] : 'index';
 
 //Загружаем определенный контроллер и запускаем его метод
-loadPage($smarty, $controllerName, $actionName);
+loadPage($smarty, $controllerName, $actionName, $db);
