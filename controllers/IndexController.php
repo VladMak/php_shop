@@ -20,6 +20,7 @@ function indexAction($smarty, $db)
     
     $smarty->assign('pageTitle', 'Главная страница');
     $smarty->assign('rsCategories', $rsCategories);
+    $smarty->assign('rsProducts', $rsProducts);
 
     loadTemplate($smarty, 'header');
     loadTemplate($smarty, 'index');
