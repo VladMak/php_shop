@@ -30,6 +30,8 @@ function indexAction($smarty, $db) {
     }
 
     $rsCategories = getAllMainCatsWithChildren($db);
+    
+    $smarty->assign('pageTitle', $rsCategory['name']);
 
     $smarty->assign('rsCategory', $rsCategory);
     $smarty->assign('rsProducts', $rsProducts);

@@ -21,11 +21,30 @@ function getLastProducts($db, $limit = null) {
     return createSmartyRsArray($rs);
 }
 
+/**
+ * Получить продукты категории
+ * @param type $db база данных
+ * @param type $itemId идентификатор товара
+ * @return array массив продуктов
+ */
 function getProductsByCat($db, $itemId) {
     $itemId = intval($itemId);
-    $sql = "SELECT * FROM products WHERE category_id='$itemId'";
+    $sql = "SELECT * FROM `products` WHERE `category_id`='$itemId'";
 
     $rs = mysqli_query($db, $sql);
-
     return createSmartyRsArray($rs);
+}
+
+/**
+ * Получить продукт по категории
+ * @param type $db база данных
+ * @param type $itemId идентификатор товара
+ * @return array массив данных продукта
+ */
+function getProductById($db, $itemId) {
+    $itemId = intval($itemId);
+    $sql = "SELECT * FROM `products` WHERE `id`='$itemId'";
+
+    $rs = mysqli_query($db, $sql);
+    return mysqli_fetch_assoc($rs);
 }
