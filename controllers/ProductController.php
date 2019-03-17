@@ -22,7 +22,7 @@ function indexAction($smarty, $db) {
     //Получить все категории
     $rsCategories = getAllMainCatsWithChildren($db);
     
-    $smarty->assign('pageTitle', '');
+    $smarty->assign('pageTitle', $rsProduct['name']);
     $smarty->assign('rsCategories', $rsCategories);
     $smarty->assign('rsProduct', $rsProduct);
     
