@@ -58,3 +58,23 @@ function removefromcartAction() {
     
     echo json_encode($resData);
 }
+
+/**
+ * Формирование страницы корзины
+ * @param type $smarty объект Смарти
+ * @param type $db соединение с базой данных
+ */
+function indexAction($smarty, $db){
+    $itemIds = isset($_SESSION['cart']) ? $_SESSION['cart'] : array();
+    
+    $rsCategories = getAllMainCatsWithChildren($db);
+    $rsProducts = getProductsFromArray($db, $itemIds);
+    
+    $smarty->assign('pageTitle', 'Корзина');
+    $smarty->assign('rsCategories', $rsCategories);
+    $smarty->assign('rsProducts', $rsProducts);
+    
+    loadTemplate($smarty, 'header');
+    loadTemplate($smarty, 'cart');
+    loadTemplate($smarty, 'footer');
+}
